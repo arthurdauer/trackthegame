@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111310">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Track">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="Track, The Game. Uma frase, dois suspeitos. Quem disse essa?">
+  <title>Track, The Game</title>
+  <style>
+    :root{color-scheme:dark;--bg:#111310;--surface:#1c1f19;--line:#33372e;--ink:#f3f5e8;--muted:#a8ae9e;--lime:#d6ff62;--purple:#c8b9ff;--red:#ff9698;--radius:28px}
+    *{box-sizing:border-box}body{margin:0;overflow-x:hidden;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer;border:0}button:focus-visible,summary:focus-visible{outline:3px solid var(--purple);outline-offset:5px}button:disabled{cursor:default}svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}.icons{position:absolute;width:0;height:0;overflow:hidden}[hidden]{display:none!important}
+    .shell{width:100%;max-width:460px;margin:0 auto;padding:calc(23px + env(safe-area-inset-top)) 24px calc(26px + env(safe-area-inset-bottom));min-height:100vh;min-height:100svh}.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}.wordmark{font-size:18px;font-weight:850;letter-spacing:-.7px}.wordmark span{color:var(--lime)}.eyebrow{font-size:10px;letter-spacing:2.1px;font-weight:800;text-transform:uppercase}.pill{border:1px solid var(--line);padding:8px 11px;border-radius:30px;font-size:10px;letter-spacing:1.1px;color:var(--muted);font-weight:700}.status-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lime);margin-right:6px}.view{animation:appear .35s ease-out}.intro-title{font-size:clamp(55px,17vw,76px);line-height:.88;letter-spacing:-5px;font-weight:900;margin:12px 0 22px}.intro-title em{font-style:normal;color:var(--lime)}.subtitle{font-size:16px;line-height:1.6;color:var(--muted);margin:0;max-width:310px}.primary{width:100%;display:flex;align-items:center;justify-content:space-between;background:var(--lime);color:var(--bg);border-radius:18px;padding:20px 22px;font-weight:800;font-size:17px;min-height:62px}.primary:active{transform:scale(.98)}.primary svg{width:24px;height:24px}.footnote{text-align:center;font-size:11px;line-height:1.6;color:var(--muted);margin:16px 0 0}.badge{display:inline-flex;align-items:center;gap:7px;border-radius:8px;padding:8px 10px;background:#262d1a;color:var(--lime);font-size:10px;font-weight:800;letter-spacing:1.4px}.badge svg{width:14px;height:14px}
+    .install-title{font-size:40px;letter-spacing:-2px;line-height:1.08;margin:18px 0 14px;font-weight:850}.app-preview{margin:24px 0;display:flex;align-items:center;gap:15px}.app-icon{width:66px;height:66px;display:grid;place-items:center;background:var(--lime);color:var(--bg);border-radius:18px;font-size:37px;font-weight:950;font-style:italic;letter-spacing:-4px;box-shadow:0 8px 24px #d6ff6212}.app-preview strong{display:block;font-size:18px;letter-spacing:-.5px}.app-preview small{display:block;color:var(--muted);font-size:12px;margin-top:5px}.steps{padding:0;margin:0 0 24px;list-style:none;border-top:1px solid var(--line)}.steps li{display:flex;gap:13px;align-items:flex-start;padding:17px 0;border-bottom:1px solid var(--line)}.step-number{border:1px solid var(--line);width:25px;height:25px;flex:0 0 25px;border-radius:50%;display:grid;place-items:center;font-size:11px;color:var(--lime)}.step-copy{flex:1}.step-copy strong{font-size:14px;display:block;margin:3px 0 5px}.step-copy p{font-size:12px;line-height:1.5;color:var(--muted);margin:0}.step-icon{color:var(--muted);margin-top:4px}.lock-note{display:flex;align-items:center;justify-content:center;gap:9px;padding:15px;border-radius:15px;background:var(--surface);font-size:12px;color:var(--muted)}.lock-note svg{width:16px;height:16px}details{margin-top:18px;color:var(--muted);font-size:12px;line-height:1.6}summary{cursor:pointer;text-align:center}details p{background:var(--surface);padding:14px;border-radius:12px}
+    .hero{position:relative;border:1px solid var(--line);border-radius:var(--radius);margin:27px 0 24px;padding:26px 24px 25px;min-height:245px;overflow:hidden;background:radial-gradient(ellipse at 100% 0%,#d6ff6210,transparent 65%),var(--surface)}.hero:after{content:"?";position:absolute;right:-4px;top:-44px;transform:rotate(13deg);font-size:245px;font-weight:900;color:#d6ff6208;pointer-events:none}.hero-tag{font-size:10px;letter-spacing:1.5px;color:var(--muted);font-weight:800}.hero-question{position:relative;z-index:1;font-size:35px;line-height:1.12;letter-spacing:-1.5px;font-weight:800;max-width:210px;margin:19px 0 24px}.suspects{display:flex;gap:8px;align-items:center;position:relative;z-index:1}.suspect{font-size:11px;font-weight:800;border:1px solid #d6ff6266;color:var(--lime);padding:8px 12px;border-radius:30px}.suspect.k{color:var(--purple);border-color:#c8b9ff66}.suspects .versus{font-size:10px;color:var(--muted)}.rules{display:flex;gap:10px;margin:0 0 24px}.rule{flex:1;background:var(--surface);border-radius:15px;padding:15px}.rule b{display:block;font-size:22px;letter-spacing:-1px;color:var(--lime);margin-bottom:6px}.rule.loss b{color:var(--red)}.rule span{font-size:11px;color:var(--muted)}.record-line{margin:18px 0 0;text-align:center;color:var(--muted);font-size:12px}.record-line b{color:var(--ink)}.demo-note{margin-bottom:20px;color:var(--muted);font-size:12px;line-height:1.5}
+    .icon-button{width:40px;height:40px;display:grid;place-items:center;background:var(--surface);border:1px solid var(--line);color:var(--muted);border-radius:50%}.game-tools{display:flex;gap:8px}.game-head{display:flex;justify-content:space-between;align-items:flex-end;margin:4px 0 18px}.score-label{font-size:10px;color:var(--muted);letter-spacing:1.7px;font-weight:700}.score-number{font-size:48px;font-weight:850;letter-spacing:-2.5px;line-height:1;margin-top:7px}.score-number small{font-size:12px;font-weight:500;color:var(--muted);letter-spacing:0;margin-left:7px}.combo{text-align:right;font-size:12px;color:var(--muted)}.combo strong{display:block;font-size:22px;color:var(--lime);letter-spacing:-.7px;margin-top:5px}.progress-track{height:4px;border-radius:4px;background:var(--line);overflow:hidden}.progress-fill{height:100%;width:0;background:var(--lime);transition:width .35s ease;border-radius:4px}.round{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;margin:13px 0 21px}.round span:first-child{letter-spacing:1.4px;font-size:10px;font-weight:700}.arena{position:relative;padding:8px 0 12px;isolation:isolate}.card-back{position:absolute;inset:18px 9px 3px;background:#262b20;border:1px solid #414735;border-radius:var(--radius);transform:rotate(-3deg);z-index:-1}.quote-card{position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:clamp(275px,40svh,350px);border-radius:var(--radius);padding:25px;background:var(--ink);color:var(--bg);touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:grab;transform-origin:50% 90%;overflow:hidden;box-shadow:0 15px 35px #0003}.quote-card.dragging{cursor:grabbing}.card-kicker{font-size:10px;font-weight:800;letter-spacing:1.8px;color:#777b6f;display:flex;justify-content:space-between}.quote-mark{font-family:Georgia,serif;font-size:69px;line-height:.65;color:#a4ae8c;margin:32px 0 9px}.quote-text{font-size:clamp(26px,8vw,36px);font-weight:800;line-height:1.18;letter-spacing:-1.1px;margin:0 0 30px;overflow-wrap:anywhere}.card-footer{font-size:10px;font-weight:700;letter-spacing:1px;color:#777b6f;display:flex;align-items:center;gap:7px}.card-footer svg{width:15px;height:15px}.swipe-label{position:absolute;top:62px;font-size:22px;font-weight:900;border:3px solid currentColor;border-radius:8px;padding:7px 12px;opacity:0;pointer-events:none;z-index:2}.swipe-label.track{left:22px;color:#4d6910;transform:rotate(-12deg)}.swipe-label.kosky{right:22px;color:#6953ac;transform:rotate(12deg)}.feedback{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:var(--lime);padding:25px}.feedback.wrong{background:var(--red)}.feedback-icon{width:57px;height:57px;border:2px solid var(--bg);display:grid;place-items:center;border-radius:50%;margin-bottom:20px}.feedback-icon svg{width:30px;height:30px}.feedback h2{font-size:36px;letter-spacing:-1.5px;margin:0 0 12px}.feedback p{margin:0 0 7px;font-size:14px}.feedback .points-change{font-size:24px;font-weight:850;margin-top:12px;letter-spacing:-1px}.choices{display:flex;gap:12px;margin-top:26px}.choice{flex:1;display:flex;align-items:center;justify-content:space-between;border-radius:18px;padding:20px 16px;min-height:66px;font-size:16px;font-weight:850;letter-spacing:-.4px;transition:opacity .2s,transform .2s}.choice:active{transform:scale(.96)}.choice.track{background:var(--lime);color:var(--bg)}.choice.kosky{background:var(--purple);color:var(--bg)}.choice:disabled{opacity:.35}.swipe-hint{font-size:11px;color:var(--muted);text-align:center;margin:17px 0 0}.feedback-live{position:fixed;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+    .result-title{font-size:44px;font-weight:850;letter-spacing:-2.2px;line-height:1.02;margin:16px 0 11px}.result-card{position:relative;overflow:hidden;background:var(--lime);color:var(--bg);border-radius:var(--radius);padding:26px;margin:24px 0 14px}.result-card .eyebrow{opacity:.65}.final-score{font-size:94px;font-weight:900;letter-spacing:-6px;line-height:1;margin:13px 0}.score-unit{font-size:14px;font-weight:650;letter-spacing:0}.result-card .result-rank{margin:0;font-size:16px;font-weight:800}.result-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:24px}.result-stat{background:var(--surface);border:1px solid var(--line);border-radius:16px;text-align:center;padding:15px 6px}.result-stat b{font-size:24px;display:block;letter-spacing:-1px}.result-stat span{color:var(--muted);font-size:10px;display:block;margin-top:5px}.new-record{font-size:11px;font-weight:850;background:var(--bg);color:var(--lime);padding:8px 11px;border-radius:20px;display:inline-block;margin-bottom:13px}.secondary{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:16px;min-height:50px;font-size:13px;margin-top:11px}.review{margin-top:26px}.review summary{text-align:left;color:var(--ink);font-weight:700;font-size:13px}.review-list{padding:0;margin:12px 0;list-style:none}.review-list li{padding:16px 0;border-bottom:1px solid var(--line)}.review-list .review-quote{font-size:14px;color:var(--ink);line-height:1.5;margin-bottom:7px;overflow-wrap:anywhere}.review-list .review-answer{font-size:11px;color:var(--lime)}.review-list .review-answer.missed{color:var(--red)}.empty{color:var(--muted);font-size:14px;line-height:1.6}
+    @keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}@keyframes cardIn{from{opacity:0;transform:translateY(15px) rotate(2deg)}to{opacity:1;transform:none}}@keyframes scoreBump{50%{transform:scale(1.1)}}.enter-card{animation:cardIn .32s ease-out}.bump{animation:scoreBump .25s ease}
+    @media(max-width:350px){.shell{padding-left:18px;padding-right:18px}.intro-title{font-size:57px}.install-title{font-size:35px}.quote-card{padding:21px}.choice{padding:18px 12px}.result-stat b{font-size:21px}}
+    @media(max-height:740px){.topbar{margin-bottom:20px}.quote-card{min-height:270px}.game-head{margin-top:0}.round{margin-bottom:12px}.choices{margin-top:18px}.hero{min-height:210px}.hero-question{margin:16px 0 19px}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+  <svg class="icons" aria-hidden="true"><defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 15V3M8 7l4-4 4 4M7 10H4v11h16V10h-3"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 7v10M7 12h10"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10l9-7 9 7v11H3zM9 21v-8h6v8"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></symbol>
+    <symbol id="i-cross" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-swipe" viewBox="0 0 24 24"><path d="M3 12h18M7 8l-4 4 4 4M17 8l4 4-4 4"/></symbol>
+    <symbol id="i-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9zM17 8a6 6 0 0 1 0 8M20 5a10 10 0 0 1 0 14"/></symbol>
+    <symbol id="i-mute" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9zM17 9l5 6M22 9l-5 6"/></symbol>
+    <symbol id="i-repeat" viewBox="0 0 24 24"><path d="M19 8a8 8 0 1 0 1 8M19 3v5h-5"/></symbol>
+  </defs></svg>
+  <main class="shell">
+    <header class="topbar"><div class="wordmark">track<span>.</span></div><span class="pill" id="top-status">THE GAME</span></header>
+
+    <section class="view" id="install-view" aria-labelledby="install-title">
+      <div class="badge"><svg aria-hidden="true"><use href="#i-home"/></svg> PRIMEIRO, NA TELA INICIAL</div>
+      <h1 class="install-title" id="install-title">O jogo começa<br>fora do Safari.</h1>
+      <p class="subtitle">Adicione o Track à tela inicial do seu iPhone. Depois, entre pelo ícone para jogar.</p>
+      <div class="app-preview"><div class="app-icon" aria-hidden="true">T.</div><div><strong>Track, The Game</strong><small>Uma frase. Dois suspeitos.</small></div></div>
+      <ol class="steps">
+        <li><span class="step-number">1</span><div class="step-copy"><strong>Abra este link no Safari</strong><p>Se você veio pelo WhatsApp ou Instagram, abra o link no Safari do iPhone.</p></div><svg class="step-icon" aria-hidden="true"><use href="#i-arrow"/></svg></li>
+        <li><span class="step-number">2</span><div class="step-copy"><strong>Toque em Compartilhar</strong><p>Procure o quadrado com uma seta para cima. Ele pode estar dentro do menu do Safari.</p></div><svg class="step-icon" aria-hidden="true"><use href="#i-share"/></svg></li>
+        <li><span class="step-number">3</span><div class="step-copy"><strong>Adicionar à Tela de Início</strong><p>Se aparecer “Abrir como App da Web”, deixe ativado. Confirme em “Adicionar”.</p></div><svg class="step-icon" aria-hidden="true"><use href="#i-plus"/></svg></li>
+        <li><span class="step-number">4</span><div class="step-copy"><strong>Abra pelo novo ícone</strong><p>Volte à tela inicial e toque em Track. O jogo será liberado automaticamente.</p></div><svg class="step-icon" aria-hidden="true"><use href="#i-home"/></svg></li>
+      </ol>
+      <div class="lock-note"><svg aria-hidden="true"><use href="#i-lock"/></svg> Aguardando abertura pela tela inicial</div>
+      <p class="footnote">Não precisa baixar pela App Store.</p>
+      <details><summary>Adicionei, mas o tutorial continua</summary><p>Feche esta página do Safari e toque no ícone da tela inicial. Se ele voltar a abrir no navegador, remova o ícone e adicione novamente com “Abrir como App da Web” ativado, quando essa opção aparecer.</p></details>
+      <p class="footnote" id="local-warning" hidden>Para adicionar à tela inicial, este HTML precisa estar publicado em um endereço de site.</p>
+      <noscript><p class="empty">Ative o JavaScript no navegador para jogar.</p></noscript>
+    </section>
+
+    <section class="view" id="welcome-view" hidden aria-labelledby="welcome-title">
+      <span class="eyebrow" style="color:var(--muted)">CONHECE MESMO OS DOIS?</span>
+      <h1 class="intro-title" id="welcome-title">TRACK,<br><em>THE<br>GAME.</em></h1>
+      <p class="subtitle">Uma frase, dois suspeitos.<br>Quem disse essa?</p>
+      <div class="hero"><span class="hero-tag">TESTE SEU CONHECIMENTO</span><p class="hero-question">Track ou<br>Kosky?</p><div class="suspects"><span class="suspect">TRACK</span><span class="versus">OU</span><span class="suspect k">KOSKY</span></div></div>
+      <div class="rules"><div class="rule"><b>+10</b><span>pontos por acerto</span></div><div class="rule loss"><b>−5</b><span>pontos por erro</span></div></div>
+      <p class="demo-note">Versão de teste com frases numeradas. Arraste para a esquerda para Track ou para a direita para Kosky. Também vale tocar nos nomes.</p>
+      <button class="primary" id="start-button">Bora jogar <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      <p class="record-line" id="welcome-record"></p>
+    </section>
+
+    <section class="view" id="game-view" hidden aria-label="Partida">
+      <div class="game-head"><div><div class="score-label">SUA PONTUAÇÃO</div><div class="score-number" id="score">0<small>pts</small></div></div><div class="combo">Sequência de acertos<strong id="streak">0</strong></div></div>
+      <div class="progress-track" role="progressbar" aria-label="Frases respondidas" aria-valuemin="0" aria-valuemax="6" aria-valuenow="0" id="progress"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="round"><span>QUEM DISSE ESSA?</span><span id="round-number">01 / 06</span></div>
+      <div class="arena">
+        <div class="card-back" aria-hidden="true"></div>
+        <article class="quote-card" id="quote-card" aria-label="Frase. Arraste para responder ou use os botões abaixo.">
+          <div class="card-kicker"><span>ARQUIVO DE FRASES</span><span id="card-number">001</span></div>
+          <div><div class="quote-mark" aria-hidden="true">“</div><p class="quote-text" id="quote-text"></p></div>
+          <div class="card-footer"><svg aria-hidden="true"><use href="#i-swipe"/></svg> ESCOLHA UM LADO</div>
+          <div class="swipe-label track" id="label-track" aria-hidden="true">TRACK</div><div class="swipe-label kosky" id="label-kosky" aria-hidden="true">KOSKY</div>
+          <div class="feedback" id="feedback" hidden><div class="feedback-icon"><svg aria-hidden="true"><use id="feedback-icon" href="#i-check"/></svg></div><h2 id="feedback-title"></h2><p id="feedback-author"></p><p class="points-change" id="feedback-points"></p></div>
+        </article>
+      </div>
+      <div class="choices"><button class="choice track" id="track-button" aria-label="Responder Track"><svg aria-hidden="true"><use href="#i-left"/></svg>TRACK</button><button class="choice kosky" id="kosky-button" aria-label="Responder Kosky">KOSKY<svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+      <p class="swipe-hint">Arraste a carta ou toque em um nome.</p>
+      <div class="feedback-live" id="announcer" aria-live="polite" aria-atomic="true"></div>
+    </section>
+
+    <section class="view" id="result-view" hidden aria-labelledby="result-title">
+      <span class="eyebrow" style="color:var(--muted)">PARTIDA FINALIZADA</span>
+      <h1 class="result-title" id="result-title">O veredito<br>chegou.</h1>
+      <p class="subtitle" id="result-message"></p>
+      <div class="result-card"><span class="new-record" id="new-record" hidden>NOVO RECORDE</span><div class="eyebrow">SUA PONTUAÇÃO</div><div class="final-score"><span id="final-score">0</span><span class="score-unit"> pts</span></div><p class="result-rank" id="result-rank"></p></div>
+      <div class="result-stats"><div class="result-stat"><b id="final-correct">0/6</b><span>acertos</span></div><div class="result-stat"><b id="final-accuracy">0%</b><span>precisão</span></div><div class="result-stat"><b id="final-streak">0</b><span>melhor sequência</span></div></div>
+      <button class="primary" id="replay-button">Jogar de novo <svg aria-hidden="true"><use href="#i-repeat"/></svg></button>
+      <button class="secondary" id="home-button">Voltar ao início</button>
+      <p class="record-line" id="result-record"></p>
+      <details class="review" id="review"><summary>Conferir minhas respostas</summary><ol class="review-list" id="review-list"></ol></details>
+    </section>
+  </main>
+
+  <script>
+    'use strict';
+    // SUBSTITUA APENAS ESTA LISTA PELAS FRASES REAIS.
+    // autor deve ser "track" ou "kosky". Use aspas duplas e vírgulas entre os itens.
+    const FRASES = [
+      { texto: "Frase 1.", autor: "track" },
+      { texto: "Frase 2.", autor: "kosky" },
+      { texto: "Frase 3.", autor: "track" },
+      { texto: "Frase 4.", autor: "kosky" },
+      { texto: "Frase 5.", autor: "track" },
+      { texto: "Frase 6.", autor: "kosky" }
+    ];
+    const PONTOS_ACERTO = 10;
+    const PONTOS_ERRO = 5;
+    // Altere esta chave ao trocar o conjunto de frases para iniciar um novo recorde.
+    const RECORD_KEY = 'track-the-game:record:demo-v1';
+    const $ = id => document.getElementById(id);
+    const screens = ['install', 'welcome', 'game', 'result'];
+    const names = { track: 'Track', kosky: 'Kosky' };
+    const standaloneMedia = window.matchMedia('(display-mode: standalone)');
+    const isInstalled = () => navigator.standalone === true || standaloneMedia.matches;
+    const state = { screen:'install', deck:[], index:0, score:0, correct:0, streak:0, bestStreak:0, answers:[], locked:false, timer:null };
+    let drag = null;
+    let record = null;
+    let sound = false;
+    let audioContext = null;
+    try { const saved = localStorage.getItem(RECORD_KEY); if(saved !== null && Number.isFinite(Number(saved))) record = Number(saved); } catch (_) {}
+    function recordText(){ return record === null ? 'Seu primeiro recorde começa aqui.' : `Seu recorde: ${record} pontos`; }
+    function show(screen){
+      if(screen !== 'install' && !isInstalled()) screen = 'install';
+      state.screen = screen;
+      for(const name of screens) $(name + '-view').hidden = name !== screen;
+      $('top-status').replaceChildren();
+      if(screen === 'game') {
+        const button = document.createElement('button'); button.className='icon-button';button.id='sound-button';button.type='button';
+        button.addEventListener('click', () => {sound=!sound;updateSoundButton(); if(sound) playTone(true);});
+        $('top-status').append(button);$('top-status').className='game-tools';updateSoundButton();
+      } else { $('top-status').className='pill';$('top-status').textContent=screen==='install'?'THE GAME':'EDIÇÃO DOS AMIGOS'; }
+      window.scrollTo(0,0);
+      if(screen==='welcome') $('welcome-record').textContent=recordText();
+    }
+    function updateSoundButton(){const b=$('sound-button');if(!b)return;b.setAttribute('aria-label',sound?'Desativar som':'Ativar som');b.setAttribute('aria-pressed',String(sound));b.innerHTML=`<svg aria-hidden="true"><use href="#i-${sound?'sound':'mute'}"/></svg>`;}
+    function playTone(correct){
+      if(!sound)return;
+      try{
+        const Audio = window.AudioContext || window.webkitAudioContext; if(!Audio)return;
+        audioContext ||= new Audio();
+        const ctx=audioContext;
+        const emit = () => {
+          if(!sound)return;
+          const t=ctx.currentTime;
+          [correct?520:210,correct?780:155].forEach((freq,i)=>{
+            const o=ctx.createOscillator(),g=ctx.createGain();o.type='sine';o.frequency.value=freq;
+            g.gain.setValueAtTime(0,t+i*.09);g.gain.linearRampToValueAtTime(.07,t+i*.09+.015);g.gain.exponentialRampToValueAtTime(.001,t+i*.09+.15);
+            o.connect(g);g.connect(ctx.destination);o.start(t+i*.09);o.stop(t+i*.09+.16);
+          });
+        };
+        if(ctx.state==='suspended') ctx.resume().then(emit).catch(()=>{});else emit();
+      }catch(_){}
+    }
+    function shuffle(items){const a=items.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+    function resetDrag(){
+      if(drag){try{$('quote-card').releasePointerCapture(drag.id);}catch(_){} drag=null;}
+      $('quote-card').classList.remove('dragging');$('quote-card').style.transform='';$('quote-card').style.transition='';
+      $('label-track').style.opacity='0';$('label-kosky').style.opacity='0';
+    }
+    function start(){
+      if(!isInstalled()){show('install');return;}
+      clearTimeout(state.timer);resetDrag();
+      Object.assign(state,{deck:shuffle(FRASES.filter(f=>f&&typeof f.texto==='string'&&f.texto.trim()&&names[f.autor])),index:0,score:0,correct:0,streak:0,bestStreak:0,answers:[],locked:false,timer:null});
+      if(!state.deck.length){$('announcer').textContent='Nenhuma frase disponível.';return;}
+      $('progress').setAttribute('aria-valuemax',String(state.deck.length));
+      show('game');renderCard();
+    }
+    function updateStats(){
+      $('score').replaceChildren(document.createTextNode(String(state.score)));const unit=document.createElement('small');unit.textContent='pts';$('score').append(unit);
+      $('streak').textContent=String(state.streak);$('progress-fill').style.width=`${state.index/state.deck.length*100}%`;$('progress').setAttribute('aria-valuenow',String(state.index));
+    }
+    function renderCard(){
+      resetDrag();state.locked=false;$('feedback').hidden=true;$('track-button').disabled=false;$('kosky-button').disabled=false;
+      const item=state.deck[state.index];$('quote-text').textContent=item.texto;
+      const n=String(state.index+1).padStart(2,'0');$('round-number').textContent=`${n} / ${String(state.deck.length).padStart(2,'0')}`;$('card-number').textContent=String(state.index+1).padStart(3,'0');
+      updateStats();$('quote-card').classList.remove('enter-card');void $('quote-card').offsetWidth;$('quote-card').classList.add('enter-card');
+      if(state.index>0){const active=document.activeElement;if(active===$('track-button')||active===$('kosky-button'))active.focus({preventScroll:true});}
+    }
+    function answer(author){
+      if(!isInstalled()){show('install');return;}
+      if(state.screen!=='game'||state.locked||!names[author])return;
+      state.locked=true;resetDrag();const item=state.deck[state.index],correct=item.autor===author;
+      const delta=correct?PONTOS_ACERTO:-PONTOS_ERRO;state.score+=delta;
+      if(correct){state.correct++;state.streak++;state.bestStreak=Math.max(state.bestStreak,state.streak);}else{state.streak=0;}
+      state.answers.push({texto:item.texto,autor:item.autor,escolha:author,correct});
+      $('track-button').disabled=true;$('kosky-button').disabled=true;
+      $('feedback').className='feedback'+(correct?'':' wrong');$('feedback-title').textContent=correct?'ACERTOU!':'ERROU!';
+      $('feedback-author').textContent=`Essa é do ${names[item.autor]}.`;$('feedback-points').textContent=`${correct?'+':'−'}${Math.abs(delta)} pontos`;$('feedback-icon').setAttribute('href',correct?'#i-check':'#i-cross');$('feedback').hidden=false;
+      state.index++;updateStats();$('score').classList.remove('bump');void $('score').offsetWidth;$('score').classList.add('bump');
+      $('announcer').textContent=`${correct?'Acertou':'Errou'}. A frase é do ${names[item.autor]}. ${state.score} pontos.`;
+      playTone(correct);if(navigator.vibrate)navigator.vibrate(correct?25:[30,50,30]);
+      state.timer=setTimeout(()=>{if(state.screen!=='game')return;if(state.index>=state.deck.length)finish();else renderCard();},1050);
+    }
+    function finish(){
+      const accuracy=Math.round(state.correct/state.deck.length*100);
+      const isNew=record===null||state.score>record;
+      if(isNew){record=state.score;try{localStorage.setItem(RECORD_KEY,String(record));}catch(_){}}
+      $('final-score').textContent=String(state.score);$('final-correct').textContent=`${state.correct}/${state.deck.length}`;$('final-accuracy').textContent=`${accuracy}%`;$('final-streak').textContent=String(state.bestStreak);$('new-record').hidden=!isNew;$('result-record').textContent=recordText();
+      const ranking=accuracy===100?['Enciclopédia dos dois.','Você reconheceu todas. Sabe demais.']:accuracy>=70?['Amigo de carteirinha.','Você conhece bem esse repertório.']:accuracy>=40?['Conhece de vista.','Algumas certezas. Algumas confusões.']:['Chutômetro calibrado?','Hoje os dois conseguiram te confundir.'];
+      $('result-rank').textContent=ranking[0];$('result-message').textContent=ranking[1];$('review').open=false;$('review-list').replaceChildren();
+      for(const a of state.answers){const li=document.createElement('li'),q=document.createElement('div'),r=document.createElement('div');q.className='review-quote';q.textContent=a.texto;r.className='review-answer'+(a.correct?'':' missed');r.textContent=a.correct?`Acertou. ${names[a.autor]}.`:`Você marcou ${names[a.escolha]}. Era ${names[a.autor]}.`;li.append(q,r);$('review-list').append(li);}
+      show('result');$('replay-button').focus({preventScroll:true});
+    }
+    $('start-button').addEventListener('click',start);$('replay-button').addEventListener('click',start);$('home-button').addEventListener('click',()=>show('welcome'));
+    $('track-button').addEventListener('click',()=>answer('track'));$('kosky-button').addEventListener('click',()=>answer('kosky'));
+    const card=$('quote-card');
+    card.addEventListener('pointerdown',e=>{if(state.screen!=='game'||state.locked||!e.isPrimary||e.button!==0)return;card.classList.remove('enter-card');drag={id:e.pointerId,x:e.clientX,y:e.clientY,dx:0,dy:0};card.classList.add('dragging');card.setPointerCapture(e.pointerId);});
+    card.addEventListener('pointermove',e=>{if(!drag||drag.id!==e.pointerId||state.locked)return;drag.dx=e.clientX-drag.x;drag.dy=e.clientY-drag.y;const dx=drag.dx;card.style.transform=`translateX(${dx*.8}px) rotate(${Math.max(-15,Math.min(15,dx/17))}deg)`;const strength=Math.min(1,Math.abs(dx)/76);$('label-track').style.opacity=dx<0?String(strength):'0';$('label-kosky').style.opacity=dx>0?String(strength):'0';});
+    card.addEventListener('pointerup',e=>{if(!drag||drag.id!==e.pointerId)return;const {dx,dy}=drag;const threshold=Math.min(76,card.clientWidth*.24);resetDrag();if(Math.abs(dx)>threshold&&Math.abs(dx)>Math.abs(dy)*1.2)answer(dx<0?'track':'kosky');});
+    card.addEventListener('pointercancel',resetDrag);card.addEventListener('lostpointercapture',()=>{if(drag)resetDrag();});
+    document.addEventListener('keydown',e=>{if(state.screen!=='game'||state.locked)return;if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();answer(e.key==='ArrowLeft'?'track':'kosky');}});
+    function checkMode(){if(!isInstalled()){clearTimeout(state.timer);resetDrag();show('install');}else if(state.screen==='install')show('welcome');}
+    if(standaloneMedia.addEventListener)standaloneMedia.addEventListener('change',checkMode);else if(standaloneMedia.addListener)standaloneMedia.addListener(checkMode);
+    window.addEventListener('pageshow',checkMode);document.addEventListener('visibilitychange',()=>{if(!document.hidden)checkMode();});
+    if(location.protocol==='file:')$('local-warning').hidden=false;
+    checkMode();
+  </script>
+</body>
+</html>
