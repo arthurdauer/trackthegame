@@ -6,14 +6,17 @@
   <meta name="theme-color" content="#111310">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-title" content="Track">
+  <meta name="apple-mobile-web-app-title" content="Track, The game">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="description" content="Track, The Game. Uma frase, dois suspeitos. Quem disse essa?">
-  <title>Track, The Game</title>
+  <meta name="description" content="Track, The game. Uma frase, dois suspeitos. Quem disse essa?">
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png?v=2">
+  <link rel="icon" type="image/png" href="./apple-touch-icon.png?v=2">
+  <title>Track, The game</title>
   <style>
     :root{color-scheme:dark;--bg:#111310;--surface:#1c1f19;--line:#33372e;--ink:#f3f5e8;--muted:#a8ae9e;--lime:#d6ff62;--purple:#c8b9ff;--red:#ff9698;--radius:28px}
     *{box-sizing:border-box}body{margin:0;overflow-x:hidden;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer;border:0}button:focus-visible,summary:focus-visible{outline:3px solid var(--purple);outline-offset:5px}button:disabled{cursor:default}svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}.icons{position:absolute;width:0;height:0;overflow:hidden}[hidden]{display:none!important}
     .shell{width:100%;max-width:460px;margin:0 auto;padding:calc(23px + env(safe-area-inset-top)) 24px calc(26px + env(safe-area-inset-bottom));min-height:100vh;min-height:100svh}.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}.wordmark{font-size:18px;font-weight:850;letter-spacing:-.7px}.wordmark span{color:var(--lime)}.eyebrow{font-size:10px;letter-spacing:2.1px;font-weight:800;text-transform:uppercase}.pill{border:1px solid var(--line);padding:8px 11px;border-radius:30px;font-size:10px;letter-spacing:1.1px;color:var(--muted);font-weight:700}.status-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lime);margin-right:6px}.view{animation:appear .35s ease-out}.intro-title{font-size:clamp(55px,17vw,76px);line-height:.88;letter-spacing:-5px;font-weight:900;margin:12px 0 22px}.intro-title em{font-style:normal;color:var(--lime)}.subtitle{font-size:16px;line-height:1.6;color:var(--muted);margin:0;max-width:310px}.primary{width:100%;display:flex;align-items:center;justify-content:space-between;background:var(--lime);color:var(--bg);border-radius:18px;padding:20px 22px;font-weight:800;font-size:17px;min-height:62px}.primary:active{transform:scale(.98)}.primary svg{width:24px;height:24px}.footnote{text-align:center;font-size:11px;line-height:1.6;color:var(--muted);margin:16px 0 0}.badge{display:inline-flex;align-items:center;gap:7px;border-radius:8px;padding:8px 10px;background:#262d1a;color:var(--lime);font-size:10px;font-weight:800;letter-spacing:1.4px}.badge svg{width:14px;height:14px}
+    .app-icon img{display:block;width:100%;height:100%;border-radius:inherit}.quote-text.long{font-size:22px;line-height:1.3;letter-spacing:-.4px}
     .install-title{font-size:40px;letter-spacing:-2px;line-height:1.08;margin:18px 0 14px;font-weight:850}.app-preview{margin:24px 0;display:flex;align-items:center;gap:15px}.app-icon{width:66px;height:66px;display:grid;place-items:center;background:var(--lime);color:var(--bg);border-radius:18px;font-size:37px;font-weight:950;font-style:italic;letter-spacing:-4px;box-shadow:0 8px 24px #d6ff6212}.app-preview strong{display:block;font-size:18px;letter-spacing:-.5px}.app-preview small{display:block;color:var(--muted);font-size:12px;margin-top:5px}.steps{padding:0;margin:0 0 24px;list-style:none;border-top:1px solid var(--line)}.steps li{display:flex;gap:13px;align-items:flex-start;padding:17px 0;border-bottom:1px solid var(--line)}.step-number{border:1px solid var(--line);width:25px;height:25px;flex:0 0 25px;border-radius:50%;display:grid;place-items:center;font-size:11px;color:var(--lime)}.step-copy{flex:1}.step-copy strong{font-size:14px;display:block;margin:3px 0 5px}.step-copy p{font-size:12px;line-height:1.5;color:var(--muted);margin:0}.step-icon{color:var(--muted);margin-top:4px}.lock-note{display:flex;align-items:center;justify-content:center;gap:9px;padding:15px;border-radius:15px;background:var(--surface);font-size:12px;color:var(--muted)}.lock-note svg{width:16px;height:16px}details{margin-top:18px;color:var(--muted);font-size:12px;line-height:1.6}summary{cursor:pointer;text-align:center}details p{background:var(--surface);padding:14px;border-radius:12px}
     .hero{position:relative;border:1px solid var(--line);border-radius:var(--radius);margin:27px 0 24px;padding:26px 24px 25px;min-height:245px;overflow:hidden;background:radial-gradient(ellipse at 100% 0%,#d6ff6210,transparent 65%),var(--surface)}.hero:after{content:"?";position:absolute;right:-4px;top:-44px;transform:rotate(13deg);font-size:245px;font-weight:900;color:#d6ff6208;pointer-events:none}.hero-tag{font-size:10px;letter-spacing:1.5px;color:var(--muted);font-weight:800}.hero-question{position:relative;z-index:1;font-size:35px;line-height:1.12;letter-spacing:-1.5px;font-weight:800;max-width:210px;margin:19px 0 24px}.suspects{display:flex;gap:8px;align-items:center;position:relative;z-index:1}.suspect{font-size:11px;font-weight:800;border:1px solid #d6ff6266;color:var(--lime);padding:8px 12px;border-radius:30px}.suspect.k{color:var(--purple);border-color:#c8b9ff66}.suspects .versus{font-size:10px;color:var(--muted)}.rules{display:flex;gap:10px;margin:0 0 24px}.rule{flex:1;background:var(--surface);border-radius:15px;padding:15px}.rule b{display:block;font-size:22px;letter-spacing:-1px;color:var(--lime);margin-bottom:6px}.rule.loss b{color:var(--red)}.rule span{font-size:11px;color:var(--muted)}.record-line{margin:18px 0 0;text-align:center;color:var(--muted);font-size:12px}.record-line b{color:var(--ink)}.demo-note{margin-bottom:20px;color:var(--muted);font-size:12px;line-height:1.5}
     .icon-button{width:40px;height:40px;display:grid;place-items:center;background:var(--surface);border:1px solid var(--line);color:var(--muted);border-radius:50%}.game-tools{display:flex;gap:8px}.game-head{display:flex;justify-content:space-between;align-items:flex-end;margin:4px 0 18px}.score-label{font-size:10px;color:var(--muted);letter-spacing:1.7px;font-weight:700}.score-number{font-size:48px;font-weight:850;letter-spacing:-2.5px;line-height:1;margin-top:7px}.score-number small{font-size:12px;font-weight:500;color:var(--muted);letter-spacing:0;margin-left:7px}.combo{text-align:right;font-size:12px;color:var(--muted)}.combo strong{display:block;font-size:22px;color:var(--lime);letter-spacing:-.7px;margin-top:5px}.progress-track{height:4px;border-radius:4px;background:var(--line);overflow:hidden}.progress-fill{height:100%;width:0;background:var(--lime);transition:width .35s ease;border-radius:4px}.round{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;margin:13px 0 21px}.round span:first-child{letter-spacing:1.4px;font-size:10px;font-weight:700}.arena{position:relative;padding:8px 0 12px;isolation:isolate}.card-back{position:absolute;inset:18px 9px 3px;background:#262b20;border:1px solid #414735;border-radius:var(--radius);transform:rotate(-3deg);z-index:-1}.quote-card{position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:clamp(275px,40svh,350px);border-radius:var(--radius);padding:25px;background:var(--ink);color:var(--bg);touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:grab;transform-origin:50% 90%;overflow:hidden;box-shadow:0 15px 35px #0003}.quote-card.dragging{cursor:grabbing}.card-kicker{font-size:10px;font-weight:800;letter-spacing:1.8px;color:#777b6f;display:flex;justify-content:space-between}.quote-mark{font-family:Georgia,serif;font-size:69px;line-height:.65;color:#a4ae8c;margin:32px 0 9px}.quote-text{font-size:clamp(26px,8vw,36px);font-weight:800;line-height:1.18;letter-spacing:-1.1px;margin:0 0 30px;overflow-wrap:anywhere}.card-footer{font-size:10px;font-weight:700;letter-spacing:1px;color:#777b6f;display:flex;align-items:center;gap:7px}.card-footer svg{width:15px;height:15px}.swipe-label{position:absolute;top:62px;font-size:22px;font-weight:900;border:3px solid currentColor;border-radius:8px;padding:7px 12px;opacity:0;pointer-events:none;z-index:2}.swipe-label.track{left:22px;color:#4d6910;transform:rotate(-12deg)}.swipe-label.kosky{right:22px;color:#6953ac;transform:rotate(12deg)}.feedback{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:var(--lime);padding:25px}.feedback.wrong{background:var(--red)}.feedback-icon{width:57px;height:57px;border:2px solid var(--bg);display:grid;place-items:center;border-radius:50%;margin-bottom:20px}.feedback-icon svg{width:30px;height:30px}.feedback h2{font-size:36px;letter-spacing:-1.5px;margin:0 0 12px}.feedback p{margin:0 0 7px;font-size:14px}.feedback .points-change{font-size:24px;font-weight:850;margin-top:12px;letter-spacing:-1px}.choices{display:flex;gap:12px;margin-top:26px}.choice{flex:1;display:flex;align-items:center;justify-content:space-between;border-radius:18px;padding:20px 16px;min-height:66px;font-size:16px;font-weight:850;letter-spacing:-.4px;transition:opacity .2s,transform .2s}.choice:active{transform:scale(.96)}.choice.track{background:var(--lime);color:var(--bg)}.choice.kosky{background:var(--purple);color:var(--bg)}.choice:disabled{opacity:.35}.swipe-hint{font-size:11px;color:var(--muted);text-align:center;margin:17px 0 0}.feedback-live{position:fixed;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
@@ -46,7 +49,7 @@
       <div class="badge"><svg aria-hidden="true"><use href="#i-home"/></svg> PRIMEIRO, NA TELA INICIAL</div>
       <h1 class="install-title" id="install-title">O jogo começa<br>fora do Safari.</h1>
       <p class="subtitle">Adicione o Track à tela inicial do seu iPhone. Depois, entre pelo ícone para jogar.</p>
-      <div class="app-preview"><div class="app-icon" aria-hidden="true">T.</div><div><strong>Track, The Game</strong><small>Uma frase. Dois suspeitos.</small></div></div>
+      <div class="app-preview"><div class="app-icon" aria-hidden="true"><img src="data:image/png;base64,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" alt="" width="66" height="66"></div><div><strong>Track, The game</strong><small>Uma frase. Dois suspeitos.</small></div></div>
       <ol class="steps">
         <li><span class="step-number">1</span><div class="step-copy"><strong>Abra este link no Safari</strong><p>Se você veio pelo WhatsApp ou Instagram, abra o link no Safari do iPhone.</p></div><svg class="step-icon" aria-hidden="true"><use href="#i-arrow"/></svg></li>
         <li><span class="step-number">2</span><div class="step-copy"><strong>Toque em Compartilhar</strong><p>Procure o quadrado com uma seta para cima. Ele pode estar dentro do menu do Safari.</p></div><svg class="step-icon" aria-hidden="true"><use href="#i-share"/></svg></li>
@@ -66,15 +69,15 @@
       <p class="subtitle">Uma frase, dois suspeitos.<br>Quem disse essa?</p>
       <div class="hero"><span class="hero-tag">TESTE SEU CONHECIMENTO</span><p class="hero-question">Track ou<br>Kosky?</p><div class="suspects"><span class="suspect">TRACK</span><span class="versus">OU</span><span class="suspect k">KOSKY</span></div></div>
       <div class="rules"><div class="rule"><b>+10</b><span>pontos por acerto</span></div><div class="rule loss"><b>−5</b><span>pontos por erro</span></div></div>
-      <p class="demo-note">Versão de teste com frases numeradas. Arraste para a esquerda para Track ou para a direita para Kosky. Também vale tocar nos nomes.</p>
+      <p class="demo-note">Arraste para a esquerda para Track ou para a direita para Kosky. Também vale tocar nos nomes.</p>
       <button class="primary" id="start-button">Bora jogar <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
       <p class="record-line" id="welcome-record"></p>
     </section>
 
     <section class="view" id="game-view" hidden aria-label="Partida">
       <div class="game-head"><div><div class="score-label">SUA PONTUAÇÃO</div><div class="score-number" id="score">0<small>pts</small></div></div><div class="combo">Sequência de acertos<strong id="streak">0</strong></div></div>
-      <div class="progress-track" role="progressbar" aria-label="Frases respondidas" aria-valuemin="0" aria-valuemax="6" aria-valuenow="0" id="progress"><div class="progress-fill" id="progress-fill"></div></div>
-      <div class="round"><span>QUEM DISSE ESSA?</span><span id="round-number">01 / 06</span></div>
+      <div class="progress-track" role="progressbar" aria-label="Frases respondidas" aria-valuemin="0" aria-valuemax="24" aria-valuenow="0" id="progress"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="round"><span>QUEM DISSE ESSA?</span><span id="round-number">01 / 24</span></div>
       <div class="arena">
         <div class="card-back" aria-hidden="true"></div>
         <article class="quote-card" id="quote-card" aria-label="Frase. Arraste para responder ou use os botões abaixo.">
@@ -95,7 +98,7 @@
       <h1 class="result-title" id="result-title">O veredito<br>chegou.</h1>
       <p class="subtitle" id="result-message"></p>
       <div class="result-card"><span class="new-record" id="new-record" hidden>NOVO RECORDE</span><div class="eyebrow">SUA PONTUAÇÃO</div><div class="final-score"><span id="final-score">0</span><span class="score-unit"> pts</span></div><p class="result-rank" id="result-rank"></p></div>
-      <div class="result-stats"><div class="result-stat"><b id="final-correct">0/6</b><span>acertos</span></div><div class="result-stat"><b id="final-accuracy">0%</b><span>precisão</span></div><div class="result-stat"><b id="final-streak">0</b><span>melhor sequência</span></div></div>
+      <div class="result-stats"><div class="result-stat"><b id="final-correct">0/24</b><span>acertos</span></div><div class="result-stat"><b id="final-accuracy">0%</b><span>precisão</span></div><div class="result-stat"><b id="final-streak">0</b><span>melhor sequência</span></div></div>
       <button class="primary" id="replay-button">Jogar de novo <svg aria-hidden="true"><use href="#i-repeat"/></svg></button>
       <button class="secondary" id="home-button">Voltar ao início</button>
       <p class="record-line" id="result-record"></p>
@@ -108,17 +111,107 @@
     // SUBSTITUA APENAS ESTA LISTA PELAS FRASES REAIS.
     // autor deve ser "track" ou "kosky". Use aspas duplas e vírgulas entre os itens.
     const FRASES = [
-      { texto: "Frase 1.", autor: "track" },
-      { texto: "Frase 2.", autor: "kosky" },
-      { texto: "Frase 3.", autor: "track" },
-      { texto: "Frase 4.", autor: "kosky" },
-      { texto: "Frase 5.", autor: "track" },
-      { texto: "Frase 6.", autor: "kosky" }
-    ];
+      {
+            "texto": "Humm.",
+            "autor": "track"
+      },
+      {
+            "texto": "Eu peguei ela no colo.",
+            "autor": "track"
+      },
+      {
+            "texto": "É pra isso que eu treino.",
+            "autor": "track"
+      },
+      {
+            "texto": "Artu qé debuia ela.",
+            "autor": "track"
+      },
+      {
+            "texto": "Depois manda o pix, 2 reais.",
+            "autor": "track"
+      },
+      {
+            "texto": "Eles não tem carro, só helicóptero.",
+            "autor": "track"
+      },
+      {
+            "texto": "Vem tudo nesse combo, vem tudo, vem tudo nesse méqui, tudo, vem tudo.",
+            "autor": "track"
+      },
+      {
+            "texto": "Oloko.",
+            "autor": "track"
+      },
+      {
+            "texto": "Massa pré assada, coberta com molho, queijo e recheios, pronta para finalizar no forno.",
+            "autor": "track"
+      },
+      {
+            "texto": "Músculos do Movimento Ocular: Os retos movem os olhos para cima, baixo, dentro e fora, enquanto os oblíquos fazem rotação e movimentos diagonais. O levantador eleva a pálpebra.",
+            "autor": "track"
+      },
+      {
+            "texto": "MeO dEoS.",
+            "autor": "track"
+      },
+      {
+            "texto": "Cara, o calzone de bolonhesa é o melhor.",
+            "autor": "track"
+      },
+      {
+            "texto": "Eu to no dix da mina.",
+            "autor": "kosky"
+      },
+      {
+            "texto": "Não me encaixei nessa vida de mulheres família.",
+            "autor": "kosky"
+      },
+      {
+            "texto": "Minha orelha é grande pra ouvir tua mãe gemendo.",
+            "autor": "kosky"
+      },
+      {
+            "texto": "Eu comandei a resenha do carro.",
+            "autor": "kosky"
+      },
+      {
+            "texto": "Ai tá gravando que raiva.",
+            "autor": "kosky"
+      },
+      {
+            "texto": "Me renovou completAmente.",
+            "autor": "kosky"
+      },
+      {
+            "texto": "Joga a carne pra carnivoro não.",
+            "autor": "kosky"
+      },
+      {
+            "texto": "Eu juro vey.",
+            "autor": "kosky"
+      },
+      {
+            "texto": "Você é bonita, parabéns.",
+            "autor": "kosky"
+      },
+      {
+            "texto": "Saudade da minha ex.",
+            "autor": "kosky"
+      },
+      {
+            "texto": "Que bobona.",
+            "autor": "kosky"
+      },
+      {
+            "texto": "Virgindade nível 1000.",
+            "autor": "kosky"
+      }
+];
     const PONTOS_ACERTO = 10;
     const PONTOS_ERRO = 5;
     // Altere esta chave ao trocar o conjunto de frases para iniciar um novo recorde.
-    const RECORD_KEY = 'track-the-game:record:demo-v1';
+    const RECORD_KEY = 'track-the-game:record:frases-v1';
     const $ = id => document.getElementById(id);
     const screens = ['install', 'welcome', 'game', 'result'];
     const names = { track: 'Track', kosky: 'Kosky' };
@@ -183,7 +276,7 @@
     }
     function renderCard(){
       resetDrag();state.locked=false;$('feedback').hidden=true;$('track-button').disabled=false;$('kosky-button').disabled=false;
-      const item=state.deck[state.index];$('quote-text').textContent=item.texto;
+      const item=state.deck[state.index];$('quote-text').textContent=item.texto;$('quote-text').classList.toggle('long',item.texto.length>120);
       const n=String(state.index+1).padStart(2,'0');$('round-number').textContent=`${n} / ${String(state.deck.length).padStart(2,'0')}`;$('card-number').textContent=String(state.index+1).padStart(3,'0');
       updateStats();$('quote-card').classList.remove('enter-card');void $('quote-card').offsetWidth;$('quote-card').classList.add('enter-card');
       if(state.index>0){const active=document.activeElement;if(active===$('track-button')||active===$('kosky-button'))active.focus({preventScroll:true});}
